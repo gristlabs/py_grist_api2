@@ -339,9 +339,6 @@ class Workspace(WithAccess):
     def Docs(self):
         return Docs.at(self / 'docs')
 
-    def Doc(self, doc_id):
-        return self.Docs.Doc(doc_id)
-
     def describe(self):
         return self.client.get()
 
@@ -362,9 +359,6 @@ class Docs(APIBase):
     POST https://docs.getgrist.com/api/workspaces/456/docs
         json={'name': 'Test Doc', 'isPinned': False}
     """
-    def Doc(self, doc_id):
-        return Doc.at(self / doc_id)
-
     def create(self, name, isPinned=False):
         return self.client.post(json={'name': name, 'isPinned': isPinned})
 

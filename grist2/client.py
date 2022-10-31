@@ -430,6 +430,8 @@ class Doc(WithAccess):
     def delete(self):
         return self.client.delete()
 
+    # TODO actually download to a file in all these methods.
+
     def download(self):
         return self.client.get('download')
 
